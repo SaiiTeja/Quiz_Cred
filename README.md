@@ -1,3 +1,16 @@
+# Quiz_Cred
+
+## How to run locally
+
+1. Clone repo
+   git clone https://github.com/SaiiTeja/Quiz_Cred.git
+
+2. Install dependencies
+   npm install
+
+3. Start dev server
+   npm run dev
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../../styles/Contact.css";
-import { validateContactForm } from "../../utils/contactValidation";
+import "../styles/Contact.css";
+import { validateContactForm } from "../utils/contactValidation";
 
 const Contact = () => {
   const [formData, setFormData] = useState({

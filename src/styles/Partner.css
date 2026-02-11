@@ -11,64 +11,120 @@
 body {
   background-color: var(--bg-dark);
   color: var(--text-main);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-/* Section titles */
+/* Section Title */
 .section-title {
   font-weight: 700;
   letter-spacing: 0.5px;
+  font-size: 2rem;
   background: linear-gradient(90deg, #60a5fa, #3b82f6);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* Glassy card effect */
-.startup-card {
-  background: linear-gradient(180deg, #0f1b33, #0b1428);
-  border-radius: 16px;
-  border: 1px solid rgba(255,255,255,0.06);
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-  transition: all 0.3s ease;
-}
-
-.startup-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 0 25px var(--border-glow);
-  border-color: rgba(59, 130, 246, 0.4);
-}
-
-/* Images inside cards */
-.startup-card img {
-  filter: drop-shadow(0 0 10px rgba(59,130,246,0.25));
-}
-
-/* Muted text */
-.text-muted-custom {
-  color: var(--text-muted) !important;
-}
+/* ========================= */
+/* LOGO SLIDER */
+/* ========================= */
 
 .logo-slider {
   overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 20px 0;
+}
+
+/* Fade effect on edges */
+.logo-slider::before,
+.logo-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-slider::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-dark), transparent);
+}
+
+.logo-slider::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-dark), transparent);
 }
 
 .logo-track {
   display: flex;
-  animation: scroll 18s linear infinite;
+  width: max-content;
+  gap: 40px;
+  animation: scroll 25s linear infinite;
 }
 
+/* Pause animation on hover */
+.logo-slider:hover .logo-track {
+  animation-play-state: paused;
+}
+
+/* Infinite smooth scroll */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ========================= */
+/* PARTNER CARDS */
+/* ========================= */
+
 .partner-logo {
-  transition: transform 0.3s ease;
+  min-width: 220px;
+  height: 170px;
+  background: linear-gradient(145deg, #0f1b33, #101f3f);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .partner-logo:hover {
-  transform: scale(1.08);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 35px var(--border-glow);
+  border-color: rgba(59, 130, 246, 0.4);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+.partner-logo img {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 0 12px rgba(59,130,246,0.25));
+}
+
+.partner-logo:hover img {
+  transform: scale(1.1);
+}
+
+
+@media (max-width: 768px) {
+  .partner-logo {
+    min-width: 180px;
+    height: 150px;
   }
-  to {
-    transform: translateX(-50%);
+
+  .logo-track {
+    gap: 25px;
+    animation: scroll 18s linear infinite;
   }
 }

@@ -22,6 +22,7 @@ const Navbar = () => {
           <Link to="/partners" style={styles.link}>Partners</Link>
           <Link to="/about"style={styles.link}>About</Link>
           <Link to="/contact"style={styles.link}>Contact</Link>
+          <Link to="/quiz"style={styles.link}>quiz</Link>
 
         </div>
 

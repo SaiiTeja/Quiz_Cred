@@ -1,6 +1,6 @@
 import React from "react";
 import CustomCard from "../components/CustomCard";
-import "../styles/Certifications.css"
+import "../styles/Certifications.css";
 
 const certifications = [
   {
@@ -25,12 +25,13 @@ const certifications = [
 
 const Certifications = () => {
   return (
-    <section className="py-5">
-      <div className="container">
-        <h2 className="text-center mb-5 section-title">Our Certifications</h2>
-        <div className="row g-4">
+    <section style={sectionStyle}>
+      <div style={containerStyle}>
+        <h2 style={titleStyle}>Our Certifications</h2>
+
+        <div style={gridStyle}>
           {certifications.map((cert) => (
-            <div className="col-12 col-md-4" key={cert.id}>
+            <div key={cert.id} style={cardWrapperStyle}>
               <CustomCard
                 title={cert.title}
                 image={cert.image}
@@ -42,6 +43,35 @@ const Certifications = () => {
       </div>
     </section>
   );
+};
+
+/* ------------------ Styles ------------------ */
+
+const sectionStyle = {
+  padding: "80px 20px",
+};
+
+const containerStyle = {
+  maxWidth: "1200px",
+  margin: "0 auto",
+};
+
+const titleStyle = {
+  textAlign: "center",
+  marginBottom: "50px",
+  fontSize: "2rem",
+  fontWeight: "700",
+};
+
+const gridStyle = {
+  display: "flex",
+  justifyContent: "center",
+  gap: "40px",
+  flexWrap: "wrap",
+};
+
+const cardWrapperStyle = {
+  width: "300px",
 };
 
 export default Certifications;

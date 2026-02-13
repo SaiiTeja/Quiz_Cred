@@ -1,0 +1,380 @@
+/* Global Colors */
+:root {
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --success: #10b981;
+  --info: #06b6d4;
+  --danger: #ef4444;
+  --bg-dark: #0f172a;
+  --bg-darker: #020617;
+  --bg-card: #1e293b;
+  --text-light: #f1f5f9;
+  --text-muted: #cbd5e1;
+  --border: #334155;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+#root {
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Main Container */
+.dashboard-container {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  width: 100vw !important;
+  min-height: 100vh !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.dashboard-container .container-fluid {
+  width: 100vw !important;
+  padding: 2rem 1rem !important;
+  margin: 0 !important;
+  margin-left: calc(-50vw + 50%) !important;
+}
+
+/* === Navbar === */
+.bg-dark-custom {
+  background-color: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  width: 100vw !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.navbar {
+  padding: 0.75rem 1rem !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  margin-left: calc(-50vw + 50%) !important;
+}
+
+.container-fluid {
+  padding: 0 1rem !important;
+  width: 100vw !important;
+  margin: 0 !important;
+  margin-left: calc(-50vw + 50%) !important;
+}
+
+.navbar-brand {
+  font-size: 1.3rem !important;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-warning-custom {
+  background: rgba(251, 191, 36, 0.2) !important;
+  border: 1px solid rgba(251, 191, 36, 0.3) !important;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background: white;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* === Dashboard Welcome === */
+.dashboard-welcome {
+  font-size: 2rem;
+  color: var(--text-light);
+  margin-bottom: 8px !important;
+}
+
+.dashboard-subtitle {
+  color: var(--text-muted) !important;
+  font-size: 1rem;
+}
+
+/* === Stat Cards === */
+.stat-card {
+  padding: 24px !important;
+  border-radius: 12px !important;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.bg-gradient-1 {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(129, 140, 248, 0.05) 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+}
+
+.bg-gradient-2 {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.2) !important;
+}
+
+.bg-gradient-3 {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%) !important;
+  border: 1px solid rgba(6, 182, 212, 0.2) !important;
+}
+
+.bg-gradient-4 {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+.stat-label {
+  color: var(--text-muted) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+}
+
+.stat-value {
+  color: var(--text-light) !important;
+  font-size: 2.2rem !important;
+  margin: 8px 0 0 0 !important;
+}
+
+.bg-gradient-1 .stat-value {
+  color: var(--primary-light) !important;
+}
+
+.bg-gradient-2 .stat-value {
+  color: var(--success) !important;
+}
+
+.bg-gradient-3 .stat-value {
+  color: var(--info) !important;
+}
+
+.bg-gradient-4 .stat-value {
+  color: var(--danger) !important;
+}
+
+/* === Chart Card === */
+.chart-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1) !important;
+}
+
+.chart-title {
+  color: var(--text-light) !important;
+  font-size: 1.15rem !important;
+}
+
+.chart-container {
+  position: relative;
+  height: 320px;
+  width: 100%;
+}
+
+.chart-container-sm {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+/* === AI Card === */
+.ai-card {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease;
+}
+
+.ai-card:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1) !important;
+}
+
+.ai-title {
+  color: var(--text-light) !important;
+  font-size: 1.15rem !important;
+}
+
+.ai-message {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(99, 102, 241, 0.2) !important;
+  border-radius: 8px !important;
+}
+
+.ai-text {
+  color: var(--text-muted) !important;
+  line-height: 1.6;
+}
+
+/* === Recommendations Card === */
+.recommendations-card {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  padding: 24px !important;
+  transition: all 0.3s ease;
+}
+
+.recommendations-card:hover {
+  border-color: rgba(99, 102, 241, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(99, 102, 241, 0.1) !important;
+}
+
+.rec-title {
+  color: var(--text-light) !important;
+  font-size: 1.15rem !important;
+}
+
+.rec-item {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(99, 102, 241, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 12px 16px !important;
+  transition: all 0.2s ease;
+}
+
+.rec-item:hover {
+  background: rgba(99, 102, 241, 0.1) !important;
+  border-color: rgba(99, 102, 241, 0.3) !important;
+}
+
+.rec-item-title {
+  color: var(--text-light) !important;
+  font-size: 0.95rem !important;
+}
+
+.rec-item-topic {
+  color: var(--text-muted) !important;
+  font-size: 0.85rem !important;
+}
+
+/* === Button Styles === */
+.btn-primary-custom {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%) !important;
+  border: none !important;
+  color: white !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3) !important;
+  color: white !important;
+}
+
+/* === Utilities === */
+.rounded-4 {
+  border-radius: 12px !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.bg-light {
+  background-color: var(--bg-dark) !important;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* === Scrollbar === */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .dashboard-welcome {
+    font-size: 1.5rem;
+  }
+
+  .chart-container {
+    height: 250px;
+  }
+
+  .stat-card {
+    padding: 20px !important;
+  }
+
+  .stat-value {
+    font-size: 1.8rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .stat-card {
+    padding: 16px !important;
+  }
+
+  .stat-value {
+    font-size: 1.6rem !important;
+  }
+
+  .chart-container {
+    height: 200px;
+  }
+
+  .rec-item {
+    padding: 10px 12px !important;
+  }
+}

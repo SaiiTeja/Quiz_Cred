@@ -1,6 +1,8 @@
 import {Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import Home from "./pages/Home.jsx";
+import './App.css'
+import StudentDashboard from './pages/StudentDashboard.jsx';
 import Certifications from "./pages/Certifications.jsx";
 import Partners from "./pages/Partener.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -14,6 +16,11 @@ const queryClient = new QueryClient();
 
 function App() {
   return (
+    <>
+    
+      <StudentDashboard/>
+    </>
+  )
     <QueryClientProvider client={queryClient}>
         <Navbar />
         <Routes>

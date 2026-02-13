@@ -1,22 +1,6 @@
-import "../styles/Home.css";
-import { testFunction } from "../utils/Home_logic";
+import { Navigate } from "react-router-dom";
 
 function Home() {
-
-  function handleClick() {
-    const result = testFunction(5, 3);
-    alert("JS works! Result = " + result);
-  }
-  return (
-    <div className="container mt-5 text-center">
-      <h1 className="home-title">React Setup Test</h1>
-      <p className="text-muted">
-        Testing JSX, CSS, Bootstrap, and JS
-      </p>
-      <button className="btn btn-success" onClick={handleClick}>
-        Test Everything
-      </button>
-    </div>
-  );
+  return <Navigate to="/quiz" replace />;
 }
 export default Home;

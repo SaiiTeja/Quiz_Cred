@@ -22,7 +22,8 @@ const Navbar = () => {
           <Link to="/partners" style={styles.link}>Partners</Link>
           <Link to="/about"style={styles.link}>About</Link>
           <Link to="/contact"style={styles.link}>Contact</Link>
-          <Link to="/quiz"style={styles.link}>quiz</Link>
+         
+          <Link to="/dashboard"style={styles.link}>dashboard</Link>
 
         </div>
 
@@ -35,7 +36,7 @@ const styles = {
   nav: {
     width: "100%",
     backgroundColor: "#222",
-    position: "fixed",
+    position: "sticky",
     top: 0,
     left: 0,
     zIndex: 1000

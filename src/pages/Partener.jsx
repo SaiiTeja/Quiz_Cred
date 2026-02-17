@@ -29,8 +29,9 @@ const Partners = () => {
         <div className="logo-slider">
           <div className="d-flex align-items-center logo-track">
             {[...partners, ...partners].map((partner, index) => (
-              <div
-                className="col-6 col-md-3 text-center px-4"
+              <div 
+              className="text-center px-4"
+
                 key={index}
               >
                 <CustomCard

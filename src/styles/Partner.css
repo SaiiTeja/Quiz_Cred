@@ -119,7 +119,7 @@ body {
 
 @media (max-width: 768px) {
   .partner-logo {
-    min-width: 180px;
+    min-width: 18px;
     height: 150px;
   }
 
@@ -127,4 +127,34 @@ body {
     gap: 25px;
     animation: scroll 18s linear infinite;
   }
+}
+.partner-logo {
+  min-width: 2400px !important;
+  width: 2400px !important;        /* lock width */
+  height: 180px !important;
+  flex: 0 0 auto !important;      /* prevent flex stretching */
+  background: linear-gradient(145deg, #0f1b33, #14244a) !important;
+  border-radius: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 30px !important;
+}
+
+.partner-logo img {
+  width: 100% !important;
+  max-width: 100% !important;
+  max-height: 110px !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+.logo-track {
+  display: flex !important;
+  align-items: center !important;
+}
+.logo-track {
+  display: flex;
+  gap: 40px;
+  animation: scroll 25s linear infinite;
+  align-items: center;
 }

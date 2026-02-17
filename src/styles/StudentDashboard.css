@@ -1,4 +1,15 @@
 /* Global Colors */
+html, body {
+  overflow-x: hidden;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+#root {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
 :root {
   --primary: #6366f1;
   --primary-light: #818cf8;

@@ -1,13 +1,12 @@
-/* Global Colors */
 :root {
   --primary: #6366f1;
   --primary-light: #818cf8;
   --success: #10b981;
   --info: #06b6d4;
   --danger: #ef4444;
-  --bg-dark: #0f172a;
+  --bg-dark: #080c16;
   --bg-darker: #020617;
-  --bg-card: #1e293b;
+  --bg-card: #0b111e;
   --text-light: #f1f5f9;
   --text-muted: #cbd5e1;
   --border: #334155;
@@ -57,7 +56,7 @@ html, body {
 
 /* === Navbar === */
 .bg-dark-custom {
-  background-color: rgba(15, 23, 42, 0.95) !important;
+  background-color: #080c16 !important;
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   width: 100vw !important;
@@ -96,11 +95,11 @@ html, body {
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background: white;
   color: var(--primary);
-  border-radius: 50%;
+  border-radius: 100% !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +107,6 @@ html, body {
   font-size: 0.9rem;
 }
 
-/* === Dashboard Welcome === */
 .dashboard-welcome {
   font-size: 2rem;
   color: var(--text-light);
@@ -120,7 +118,6 @@ html, body {
   font-size: 1rem;
 }
 
-/* === Stat Cards === */
 .stat-card {
   padding: 24px !important;
   border-radius: 12px !important;
@@ -185,7 +182,6 @@ html, body {
   color: var(--danger) !important;
 }
 
-/* === Chart Card === */
 .chart-card {
   background-color: var(--bg-card) !important;
   border: 1px solid var(--border) !important;
@@ -216,7 +212,6 @@ html, body {
   width: 100%;
 }
 
-/* === AI Card === */
 .ai-card {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%) !important;
   border: 1px solid rgba(99, 102, 241, 0.2) !important;

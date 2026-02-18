@@ -1,18 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Home from "./pages/Home.jsx";
 import './App.css'
-import StudentDashboard from './pages/StudentDashboard.jsx';
+import StudentDashboard from './pages/StudentDashBoard.jsx';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
+import StudentProfile from "./pages/StudentProfile.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-    
-      <StudentDashboard/>
-    </>
+    <BrowserRouter >
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/StudentDashboard' element={<StudentDashboard />} />
+        <Route path='/StudentProfile' element={<StudentProfile />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

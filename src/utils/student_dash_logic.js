@@ -1,9 +1,8 @@
-// Sample Data for the Student Dashboard [cite: 52]
 export const stats = {
   totalQuizzes: 7,
   avgScore: 77,
   accuracy: 77,
-  currentStreak: 7,
+  currentStreak: 30,
   overallRank: 77,
   aiInsightMessage: "Because your Cybersecurity Basics accuracy is low (30%), we recommend practicing basic network protocols first.",
 };

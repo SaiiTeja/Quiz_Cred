@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/Home.css";
 import { testFunction } from "../utils/Home_logic";
 
@@ -16,6 +17,9 @@ function Home() {
       <button className="btn btn-success" onClick={handleClick}>
         Test Everything
       </button>
+      <Link to="/StudentDashboard" className="btn btn-success">
+         Student Dashboard
+      </Link>
     </div>
   );
 }

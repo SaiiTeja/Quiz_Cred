@@ -8,7 +8,7 @@ import {
   chartDataStrength, 
   recommendations, 
   stats 
-} from '../utils/student_dash_logic';
+} from '../utils/Student_Dash_logic';
 
 import {
   Chart as ChartJS,
@@ -22,6 +22,9 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { Link } from 'react-router-dom';
+import StatsSection from '../component/Stats/Stats';
+import StreakDisplay from '../component/Streak/Streak';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, ArcElement, Title, Tooltip, Legend);
 
@@ -32,10 +35,8 @@ const StudentDashboard = () => {
         <div className="container-fluid">
           <span className="navbar-brand fw-bold gradient-text">QUIZCRED</span>
           <div className="d-flex align-items-center">
-            <span className="badge bg-warning-custom text-dark p-2 me-3">
-              Streak: {stats.currentStreak} Days
-            </span>
-            <div className="avatar">RS</div>
+
+              <Link to="/StudentProfile" className='btn avatar'>RS</Link>
           </div>
         </div>
       </nav>
@@ -43,36 +44,16 @@ const StudentDashboard = () => {
       <div className="container-fluid pb-5">
         <div className="row mb-4 mt-5">
           <div className="col-12">
-            <h2 className="fw-bold dashboard-welcome">Welcome back, Rithish!</h2>
+            <h2 className="fw-bold dashboard-welcome">Welcome back, Rithish S R!</h2>
             <p className="text-muted dashboard-subtitle">Here is your skill-based assessment summary.</p>
           </div>
+            <span className="badge bg-warning-custom text-dark p-2 me-3">
+              <StreakDisplay streak={stats.currentStreak} />
+            </span>
         </div>
 
         <div className="row g-3 mb-4">
-          <div className="col-md-3">
-            <div className="stat-card p-3 shadow-sm border-0 rounded-4 bg-gradient-1">
-              <h6 className="text-uppercase stat-label mb-1">Quizzes Attempted</h6>
-              <h3 className="fw-bold stat-value">{stats.totalQuizzes}</h3>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stat-card p-3 shadow-sm border-0 rounded-4 bg-gradient-2">
-              <h6 className="text-uppercase stat-label mb-1">Average Score</h6>
-              <h3 className="fw-bold stat-value">{stats.avgScore}%</h3>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stat-card p-3 shadow-sm border-0 rounded-4 bg-gradient-3">
-              <h6 className="text-uppercase stat-label mb-1">Accuracy</h6>
-              <h3 className="fw-bold stat-value">{stats.accuracy}%</h3>
-            </div>
-          </div>
-          <div className="col-md-3">
-            <div className="stat-card p-3 shadow-sm border-0 rounded-4 bg-gradient-4">
-              <h6 className="text-uppercase stat-label mb-1">Overall Rank</h6>
-              <h3 className="fw-bold stat-value">#{stats.overallRank}</h3>
-            </div>
-          </div>
+          <StatsSection />
         </div>
 
         <div className="row g-4">

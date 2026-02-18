@@ -36,9 +36,9 @@ const Navbar = ({ darkMode, setDarkMode }) => {
         <div style={styles.links}>
           {[
             { name: "Home", path: "/" },
+            { name: "Quiz", path: "/quiz" },
             { name: "Certifications", path: "/certifications" },
             { name: "Partners", path: "/partners" },
-            { name: "About", path: "/about" },
             { name: "Contact", path: "/contact" },
             { name: "Dashboard", path: "/dashboard" },
           ].map((item, index) => (
@@ -48,6 +48,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               style={{
                 ...styles.link,
                 color: theme.text,
+                fontWeight: item.name === "Quiz" ? "600" : "400",
               }}
               onMouseOver={(e) => (e.target.style.color = theme.primary)}
               onMouseOut={(e) => (e.target.style.color = theme.text)}
@@ -55,6 +56,25 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               {item.name}
             </Link>
           ))}
+
+          {/* Login Button */}
+          <Link
+            to="/login"
+            style={{
+              marginLeft: "20px",
+              padding: "8px 18px",
+              borderRadius: "20px",
+              textDecoration: "none",
+              fontWeight: "600",
+              backgroundColor: theme.primary,
+              color: darkMode ? "#000" : "#fff",
+              transition: "0.3s",
+            }}
+          >
+            Login
+          </Link>
+
+          {/* Emoji Dark/Light Toggle */}
         </div>
       </div>
     </nav>

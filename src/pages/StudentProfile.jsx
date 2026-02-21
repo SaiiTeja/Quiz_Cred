@@ -6,6 +6,7 @@ import StatsSection from '../component/Stats/Stats.jsx';
 function StudentProfile() {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [visibleCerts, setVisibleCerts] = useState(3);
 
   useEffect(() => {
     const data = studentProfileLogic.getUserProfile();
@@ -14,7 +15,7 @@ function StudentProfile() {
   }, []);
 
   const handleEditProfile = () => {
-    console.log('Edit profile clicked');
+    alert('Edit profile clicked');
   };
 
   const handleDownloadCertificate = (certId) => {
@@ -55,94 +56,114 @@ function StudentProfile() {
 
       {/* Tabs Section */}
       <div className="tabs-container">
-        
 
         {/* Overview Tab */}
-       
-          <div className="tab-content overview-content">
-            <div className="overview-grid">
-              {/* Recent Activity */}
-              <div className="overview-card">
-                <h3 className="card-title">Recent Activity</h3>
-                <div className="activity-list">
-                  {profileData.recentActivity.map((activity, index) => (
-                    <div key={index} className="activity-item">
-                      <div className="activity-icon">{activity.icon}</div>
-                      <div className="activity-details">
-                        <p className="activity-name">{activity.title}</p>
-                        <p className="activity-time">{activity.date}</p>
-                      </div>
-                      <span className="activity-score">{activity.score}</span>
+        <div className="tab-content overview-content">
+          <div className="overview-grid">
+            {/* Recent Activity */}
+            <div className="overview-card">
+              <h3 className="card-title">Recent Activity</h3>
+              <div className="activity-list">
+                {profileData.recentActivity.map((activity, index) => (
+                  <div key={index} className="activity-item">
+                    <div className="activity-icon">{activity.icon}</div>
+                    <div className="activity-details">
+                      <p className="activity-name">{activity.title}</p>
+                      <p className="activity-time">{activity.date}</p>
                     </div>
-                  ))}
-                </div>
+                    <span className="activity-score">{activity.score}</span>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              {/* Skills */}
-              <div className="overview-card">
-                <h3 className="card-title">Skills Progress</h3>
-                <div className="skills-list">
-                  {profileData.skills.map((skill, index) => (
-                    <div key={index} className="skill-item">
-                      <div className="skill-header">
-                        <p className="skill-name">{skill.name}</p>
-                        <span className="skill-percentage">{skill.progress}%</span>
-                      </div>
-                      <div className="progress-bar">
-                        <div
-                          className="progress-fill"
-                          style={{ width: `${skill.progress}%` }}
-                        ></div>
-                      </div>
+            {/* Skills */}
+            <div className="overview-card">
+              <h3 className="card-title">Skills Progress</h3>
+              <div className="skills-list">
+                {profileData.skills.map((skill, index) => (
+                  <div key={index} className="skill-item">
+                    <div className="skill-header">
+                      <p className="skill-name">{skill.name}</p>
+                      <span className="skill-percentage">{skill.progress}%</span>
                     </div>
-                  ))}
-                </div>
+                    <div className="progress-bar">
+                      <div
+                        className="progress-fill"
+                        style={{ width: `${skill.progress}%` }}
+                      ></div>
+                    </div>
+                  </div>
+                ))}
               </div>
+            </div>
 
-              {/* Achievements */}
-              <div className="overview-card full-width">
-                <h3 className="card-title">Achievements</h3>
-                <div className="achievements-grid">
-                  {profileData.achievements.map((achievement, index) => (
-                    <div key={index} className="achievement-badge">
-                      <div className="achievement-icon">{achievement.icon}</div>
-                      <p className="achievement-name">{achievement.name}</p>
-                      <p className="achievement-date">{achievement.unlockedDate}</p>
-                    </div>
-                  ))}
-                </div>
+            {/* Achievements */}
+            <div className="overview-card">
+              <h3 className="card-title">Achievements</h3>
+              <div className="achievements-grid">
+                {profileData.achievements.map((achievement, index) => (
+                  <div key={index} className="achievement-badge">
+                    <div className="achievement-icon">{achievement.icon}</div>
+                    <p className="achievement-name">{achievement.name}</p>
+                    <p className="achievement-date">{achievement.unlockedDate}</p>
+                  </div>
+                ))}
               </div>
-                      
-                      {/* Certificates Tab */}
+            </div>
+
+            {/* Certificates Tab */}
             <div className="overview-card full-width">
-                    <h3 className="card-title">Certificates</h3>
-                <div className="certificates-grid">
+              <h3 className="card-title">Certificates</h3>
+              <div className="certificates-grid">
                 {profileData.certificates.length > 0 ? (
-                    profileData.certificates.map((cert, index) => (
+                  profileData.certificates.slice(0, visibleCerts).map((cert, index) => (
                     <div key={index} className="certificate-card">
-                        <div className="cert-header">
+                      <div className="cert-header">
                         <h4 className="cert-title">{cert.title}</h4>
                         <span className="cert-date">{cert.dateEarned}</span>
-                        </div>
-                        <p className="cert-description">{cert.description}</p>
-                        <div className="cert-footer">
+                      </div>
+                      <p className="cert-description">{cert.description}</p>
+                      <div className="cert-footer">
                         <span className="cert-id">ID: {cert.id}</span>
                         <button
-                            className="btn btn-download"
-                            onClick={() => handleDownloadCertificate(cert.id)}
+                          className="btn btn-download"
+                          onClick={() => handleDownloadCertificate(cert.id)}
                         >
-                            Download
+                          Download
                         </button>
-                        </div>
+                      </div>
                     </div>
-                    ))
+                  ))
                 ) : (
-                    <p className="no-data">No certificates yet. Keep learning!</p>
+                  <p className="no-data">No certificates yet. Keep learning!</p>
                 )}
+              </div>
+
+              {profileData.certificates.length > 3 && (
+                <div className="load-more-container">
+                  {visibleCerts < profileData.certificates.length && (
+                    <button
+                      className="btn btn-load-more"
+                      onClick={() => setVisibleCerts(prev => prev + 3)}
+                    >
+                      Load More
+                    </button>
+                  )}
+                  {visibleCerts > 3 && (
+                    <button
+                      className="btn btn-show-less"
+                      onClick={() => setVisibleCerts(3)}
+                    >
+                      Show Less
+                    </button>
+                  )}
                 </div>
+              )}
             </div>
-            </div>
+
           </div>
+        </div>
       </div>
     </div>
   );

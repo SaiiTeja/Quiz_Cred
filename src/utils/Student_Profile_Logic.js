@@ -66,7 +66,7 @@ export const studentProfileLogic = {
       certificates: [
         {
           id: 'CERT-001',
-          title: 'JavaScript Fundamentals Certification',
+          title: 'JS Fundamentals Certification',
           description: 'Certified in JavaScript ES6+ fundamentals and best practices',
           dateEarned: 'February 15, 2024',
         },
@@ -81,6 +81,12 @@ export const studentProfileLogic = {
           title: 'Data Structures & Algorithms Certification',
           description: 'Certified in core data structures and algorithm design patterns',
           dateEarned: 'March 10, 2024',
+        },
+        {
+          id: 'CERT-004',
+          title: 'Test load more',
+          description: 'Add descriptionnnn',
+          dateEarned: 'March 10, 2027',
         },
       ],
     };

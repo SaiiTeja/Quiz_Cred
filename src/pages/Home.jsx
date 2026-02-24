@@ -1,259 +1,247 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import darkThemeImage from "../assets/theme.png";
+import lightThemeImage from "../assets/whitetheme.png";
 
-function Home() {
+function Home({ darkMode }) {
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(true);
   const [hoveredCard, setHoveredCard] = useState(null);
 
   const theme = {
-    background: darkMode
-      ? "radial-gradient(circle at 20% 30%, rgba(0,255,255,0.15), transparent 50%), #0a0a0f"
-      : "#f8fafc",
-
-    text: darkMode ? "white" : "#111827",
-
-    primary: darkMode ? "#00ffff" : "#16a34a",
-
-    card: darkMode ? "rgba(255,255,255,0.05)" : "#ffffff",
-
-    subText: darkMode ? "#bbb" : "#4b5563",
-
-    footer: darkMode ? "#666" : "#6b7280",
-
-    border: darkMode ? "none" : "1px solid #e5e7eb",
-
-    buttonShadow: darkMode
-      ? "0 0 20px rgba(0,255,255,0.4)"
-      : "0 8px 20px rgba(22,163,74,0.25)",
+    text: darkMode ? "#ffffff" : "#111827",
+    subText: darkMode ? "#9ca3af" : "#374151",
+    footerText: darkMode ? "#6b7280" : "#4b5563",
+    primary: darkMode ? "linear-gradient(90deg, #2563eb, #1e3a8a)" : "#0095F6",
   };
 
   return (
     <div
       style={{
         minHeight: "100vh",
-        background: theme.background,
-        color: theme.text,
+        position: "relative",
         fontFamily: "Inter, sans-serif",
-        transition: "all 0.4s ease",
+        overflow: "hidden",
       }}
     >
-      {/* Navbar */}
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "20px 40px",
-        }}
-      >
-        <h2 style={{ color: theme.primary }}>QuizCred</h2>
-
-        {/* Emoji Toggle */}
-        <button
-          onClick={() => setDarkMode(!darkMode)}
-          style={{
-            padding: "8px 14px",
-            borderRadius: "50%",
-            border: "none",
-            cursor: "pointer",
-            backgroundColor: theme.primary,
-            fontSize: "18px",
-            transition: "0.3s",
-          }}
-        >
-          {darkMode ? "☀️" : "🌙"}
-        </button>
-      </nav>
-
-      {/* Hero Section */}
-      <div style={{ textAlign: "center", padding: "120px 20px" }}>
-        <h1 style={{ fontSize: "70px", color: theme.primary }}>QuizCred</h1>
-
-        <h2 style={{ fontSize: "32px", marginBottom: "15px" }}>
-          Test Your Knowledge. Improve Every Day.
-        </h2>
-
-        <p style={{ color: theme.subText, marginBottom: "30px" }}>
-          Practice quizzes, challenge yourself, and grow your skills.
-        </p>
-
-        <button
-          onClick={() => navigate("/quiz")}
-          style={{
-            padding: "14px 30px",
-            background: theme.primary,
-            border: "none",
-            borderRadius: "30px",
-            fontWeight: "bold",
-            cursor: "pointer",
-            boxShadow: theme.buttonShadow,
-            transition: "0.3s",
-          }}
-        >
-          Start Quiz
-        </button>
-
-        <p style={{ marginTop: "20px", color: theme.footer }}>
-          Trusted by 10,000+ learners worldwide 🌍
-        </p>
-      </div>
-
-      {/* Features Section */}
+      {/* Background Image */}
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "30px",
-          padding: "60px 20px",
-          flexWrap: "wrap",
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `url(${
+            darkMode ? darkThemeImage : lightThemeImage
+          })`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+          filter: darkMode ? "none" : "blur(1px) brightness(1.05)",
+          transform: "scale(1.02)",
+          zIndex: 0,
         }}
-      >
-        {[
-          {
-            title: "📘 Practice",
-            text: "Solve daily quizzes and improve concepts.",
-          },
-          {
-            title: "🏆 Compete",
-            text: "Challenge friends and rank higher.",
-          },
-          {
-            title: "🚀 Learn",
-            text: "Track your progress and level up.",
-          },
-        ].map((item, i) => {
-          const isHovered = hoveredCard === i;
+      />
 
-          return (
-            <div
-              key={i}
-              onMouseEnter={() => setHoveredCard(i)}
-              onMouseLeave={() => setHoveredCard(null)}
-              style={{
-                background: theme.card,
-                border: theme.border,
-                padding: "30px",
-                borderRadius: "16px",
-                width: "260px",
-                textAlign: "center",
-                transition: "all 0.4s ease",
-                transform: isHovered ? "scale(1.08)" : "scale(1)",
-                boxShadow: isHovered
-                  ? darkMode
-                    ? "0 0 25px rgba(0,255,255,0.4)"
-                    : "0 10px 30px rgba(22,163,74,0.25)"
-                  : "none",
-                cursor: "pointer",
-              }}
-            >
-              <h3 style={{ marginBottom: "10px" }}>{item.title}</h3>
-              <p style={{ color: theme.subText }}>{item.text}</p>
-            </div>
-          );
-        })}
-      </div>
-
-      {/* Footer */}
-      <footer
+      {/* Overlay */}
+      <div
         style={{
-          marginTop: "80px",
-          padding: "60px 40px 30px",
-          borderTop: darkMode ? "1px solid #1f2937" : "1px solid #e5e7eb",
+          position: "absolute",
+          inset: 0,
+          background: darkMode ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.6)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Content */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          color: theme.text,
+          display: "flex",
+          flexDirection: "column",
+          minHeight: "100vh",
         }}
       >
+        {/* HERO SECTION */}
+        <div style={{ textAlign: "center", padding: "120px 20px" }}>
+          <h1 style={{ fontSize: "70px", marginBottom: "20px" }}>QuizCred</h1>
+
+          <h2 style={{ fontSize: "32px", marginBottom: "15px" }}>
+            Test Your Knowledge. Improve Every Day.
+          </h2>
+
+          <p style={{ color: theme.subText, marginBottom: "30px" }}>
+            Practice quizzes, challenge yourself, and grow your skills.
+          </p>
+
+          <button
+            onClick={() => navigate("/quiz")}
+            style={{
+              padding: "14px 40px",
+              borderRadius: "30px",
+              border: "none",
+              fontWeight: "600",
+              cursor: "pointer",
+              background: theme.primary,
+              color: "#fff",
+              boxShadow: darkMode
+                ? "0 10px 30px rgba(0,0,0,0.4)"
+                : "0 6px 20px rgba(0,149,246,0.35)",
+              transition: "0.3s",
+            }}
+          >
+            Start Quiz
+          </button>
+
+          <p style={{ marginTop: "20px", color: theme.subText }}>
+            Trusted by 10,000+ learners worldwide 🌍
+          </p>
+        </div>
+
+        {/* FEATURES */}
         <div
           style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "center",
+            gap: "30px",
+            padding: "40px 20px",
             flexWrap: "wrap",
-            gap: "40px",
-            marginBottom: "40px",
           }}
         >
-          {/* Brand Section */}
-          <div style={{ maxWidth: "300px" }}>
-            <h3 style={{ color: theme.primary, marginBottom: "15px" }}>
-              QuizCred
-            </h3>
-            <p style={{ color: theme.subText }}>
-              Empowering learners to grow their skills through smart quizzes and
-              competitive challenges.
-            </p>
-          </div>
+          {[
+            {
+              title: "📘 Practice",
+              text: "Solve daily quizzes and improve concepts.",
+            },
+            { title: "🏆 Compete", text: "Challenge friends and rank higher." },
+            { title: "🚀 Learn", text: "Track your progress and level up." },
+          ].map((item, i) => {
+            const isHovered = hoveredCard === i;
 
-          {/* Quick Links */}
-          <div>
-            <h4 style={{ marginBottom: "15px" }}>Quick Links</h4>
-
-            {[
-              { label: "Home", path: "/" },
-              { label: "About", path: "/about" },
-              { label: "Contact", path: "/contact" },
-              { label: "Dashboard", path: "/dashboard" },
-            ].map((item, index) => (
-              <p
-                key={index}
-                onClick={() => navigate(item.path)}
+            return (
+              <div
+                key={i}
+                onMouseEnter={() => setHoveredCard(i)}
+                onMouseLeave={() => setHoveredCard(null)}
                 style={{
-                  color: theme.subText,
+                  background: darkMode
+                    ? "rgba(17,24,39,0.75)"
+                    : "rgba(255,255,255,0.9)",
+                  backdropFilter: "blur(10px)",
+                  border: darkMode
+                    ? "1px solid rgba(255,255,255,0.1)"
+                    : "1px solid rgba(0,0,0,0.05)",
+                  padding: "30px",
+                  borderRadius: "20px",
+                  width: "260px",
+                  textAlign: "center",
+                  transition: "all 0.3s ease",
+                  transform: isHovered ? "scale(1.05)" : "scale(1)",
+                  boxShadow: isHovered
+                    ? "0 15px 30px rgba(0,0,0,0.1)"
+                    : "0 4px 10px rgba(0,0,0,0.05)",
                   cursor: "pointer",
-                  marginBottom: "8px",
-                  transition: "0.3s",
                 }}
-                onMouseOver={(e) => (e.target.style.color = theme.primary)}
-                onMouseOut={(e) => (e.target.style.color = theme.subText)}
               >
-                {item.label}
-              </p>
-            ))}
-          </div>
-
-          {/* Social Section */}
-          <div>
-            <h4 style={{ marginBottom: "15px" }}>Connect</h4>
-
-            {[
-              { label: "🌐 Website", url: "https://yourwebsite.com" },
-              { label: "💼 LinkedIn", url: "https://linkedin.com" },
-              {
-                label: "📸 Instagram",
-                url: "https://www.instagram.com/quiz.cred/",
-              },
-              { label: "🐦 Twitter", url: "https://twitter.com" },
-              { label: "📧 Email", url: "mailto:your@email.com" },
-            ].map((item, index) => (
-              <p
-                key={index}
-                onClick={() => window.open(item.url, "_blank")}
-                style={{
-                  color: theme.subText,
-                  cursor: "pointer",
-                  marginBottom: "8px",
-                  transition: "0.3s",
-                }}
-                onMouseOver={(e) => (e.target.style.color = theme.primary)}
-                onMouseOut={(e) => (e.target.style.color = theme.subText)}
-              >
-                {item.label}
-              </p>
-            ))}
-          </div>
+                <h3 style={{ marginBottom: "10px" }}>{item.title}</h3>
+                <p style={{ color: theme.subText }}>{item.text}</p>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Bottom Line */}
-        <div
+        {/* FOOTER */}
+        <footer
           style={{
-            textAlign: "center",
-            paddingTop: "20px",
-            borderTop: darkMode ? "1px solid #1f2937" : "1px solid #e5e7eb",
-            color: theme.footer,
-            fontSize: "14px",
+            marginTop: "auto",
+            padding: "60px 40px 30px",
+            borderTop: darkMode
+              ? "1px solid rgba(255,255,255,0.1)"
+              : "1px solid rgba(0,0,0,0.05)",
           }}
         >
-          © 2026 QuizCred. All Rights Reserved.
-        </div>
-      </footer>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              flexWrap: "wrap",
+              gap: "40px",
+              marginBottom: "40px",
+            }}
+          >
+            <div style={{ maxWidth: "300px" }}>
+              <h3 style={{ marginBottom: "15px" }}>QuizCred</h3>
+              <p style={{ color: theme.subText }}>
+                Empowering learners to grow their skills through smart quizzes
+                and competitive challenges.
+              </p>
+            </div>
+
+            <div>
+              <h4 style={{ marginBottom: "15px" }}>Quick Links</h4>
+              {[
+                { label: "Home", path: "/" },
+                { label: "About", path: "/about" },
+                { label: "Contact", path: "/contact" },
+                { label: "Dashboard", path: "/dashboard" },
+              ].map((item, i) => (
+                <p
+                  key={i}
+                  onClick={() => navigate(item.path)}
+                  style={{
+                    color: darkMode ? theme.footerText : "#0095F6",
+                    cursor: "pointer",
+                    marginBottom: "8px",
+                    fontWeight: "500",
+                  }}
+                >
+                  {item.label}
+                </p>
+              ))}
+            </div>
+
+            <div>
+              <h4 style={{ marginBottom: "15px" }}>Connect</h4>
+              {[
+                {
+                  label: "📸 Instagram",
+                  url: "https://www.instagram.com/quiz.cred/",
+                },
+                { label: "💼 LinkedIn", url: "https://linkedin.com" },
+                { label: "🐦 Twitter", url: "https://twitter.com" },
+                { label: "📧 Email", url: "mailto:your@email.com" },
+              ].map((item, i) => (
+                <p
+                  key={i}
+                  onClick={() => window.open(item.url, "_blank")}
+                  style={{
+                    color: darkMode ? theme.footerText : "#0095F6",
+                    cursor: "pointer",
+                    marginBottom: "8px",
+                    fontWeight: "500",
+                  }}
+                >
+                  {item.label}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <div
+            style={{
+              textAlign: "center",
+              paddingTop: "20px",
+              borderTop: darkMode
+                ? "1px solid rgba(255,255,255,0.1)"
+                : "1px solid rgba(0,0,0,0.05)",
+              color: theme.footerText,
+              fontSize: "14px",
+            }}
+          >
+            © 2026 QuizCred. All Rights Reserved.
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }

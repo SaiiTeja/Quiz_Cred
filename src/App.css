@@ -4,3 +4,27 @@
   min-height: 100vh;
 }
 
+/* GLOBAL DARK MODE */
+
+body.dark-mode {
+  background-color: #0a0a0f;
+  color: white;
+}
+
+body.dark-mode .auth-container {
+  background: #0a0a0f !important;
+}
+
+body.dark-mode .auth-box {
+  background: #111827 !important;
+}
+
+body.dark-mode input {
+  background: #1f2937 !important;
+  color: white !important;
+  border: 1px solid #374151 !important;
+}
+
+body.dark-mode button {
+  transition: 0.3s;
+}

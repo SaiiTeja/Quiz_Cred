@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { studentProfileLogic } from '../utils/Student_Profile_Logic.js';
 import '../styles/StudentProfile.css';
 import StatsSection from '../component/Stats/Stats.jsx';
+import EditProfileModal from '../component/Editprofilemodal/EditProfileModal.jsx';
 
 function StudentProfile() {
   const [profileData, setProfileData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [visibleCerts, setVisibleCerts] = useState(3);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   useEffect(() => {
     const data = studentProfileLogic.getUserProfile();
@@ -14,9 +16,11 @@ function StudentProfile() {
     setLoading(false);
   }, []);
 
-  const handleEditProfile = () => {
-    alert('Edit profile clicked');
-  };
+const handleEditProfile = () => setShowEditModal(true);
+
+const handleSaveProfile = (updatedData) => {
+  setProfileData(prev => ({ ...prev, ...updatedData }));
+};
 
   const handleDownloadCertificate = (certId) => {
     studentProfileLogic.downloadCertificate(certId);
@@ -165,6 +169,15 @@ function StudentProfile() {
           </div>
         </div>
       </div>
+
+      {showEditModal && (
+      <EditProfileModal
+        profileData={profileData}
+        onClose={() => setShowEditModal(false)}
+        onSave={handleSaveProfile}
+      />
+      )}
+
     </div>
   );
 }

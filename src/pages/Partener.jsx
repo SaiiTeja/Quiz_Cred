@@ -1,7 +1,7 @@
 import React from "react";
 import CustomCard from "../components/CustomCard";
 import "../styles/Partner.css"
-import FacebookLogo from "../assets/Facebook-logo.png"
+import FacebookLogo from "../assets/facebook-logo.png"
 import GoogleLogo from "../assets/google.png"
 import MicrosoftLogo from "../assets/Microsoft-Logo.png"
 import UnacedmyLogo from "../assets/unacedmylogo.jpeg"

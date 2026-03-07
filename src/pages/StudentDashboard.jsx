@@ -1,7 +1,7 @@
 import React from 'react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/studentDashboard.css';
+import '../styles/StudentDashboard.css';
 import { 
   chartDataProgress, 
   chartDataTopics, 

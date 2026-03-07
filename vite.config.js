@@ -7,14 +7,21 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    allowedHosts: [
-      "https://quiz-cred-2.onrender.com"
-    ],
     hmr: {
       overlay: false,
     },
   },
+
+  preview: {
+    host: "::",
+    port: 8080,
+    allowedHosts: [
+      ".onrender.com"
+    ]
+  },
+
   plugins: [react()],
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

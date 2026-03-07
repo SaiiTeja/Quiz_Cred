@@ -8,8 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
     allowedHosts: [
-      "quiz-cred-lhrs.onrender.com",
-      "quiz-cred-1.onrender.com"
+      "https://quiz-cred-2.onrender.com"
     ],
     hmr: {
       overlay: false,

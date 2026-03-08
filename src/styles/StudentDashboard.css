@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /* Global Colors */
 html, body {
   overflow-x: hidden;
@@ -12,7 +10,6 @@ html, body {
   height: 100vh !important;
 }
 
->>>>>>> origin/main
 :root {
   --primary: #6366f1;
   --primary-light: #818cf8;

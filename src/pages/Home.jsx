@@ -1,7 +1,13 @@
+<<<<<<< HEAD
+import { Link } from "react-router-dom";
+import "../styles/Home.css";
+import { testFunction } from "../utils/Home_logic";
+=======
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import darkThemeImage from "../assets/theme.png";
 import lightThemeImage from "../assets/whitetheme.png";
+>>>>>>> origin/main
 
 function Home({ darkMode }) {
   const navigate = useNavigate();
@@ -15,6 +21,19 @@ function Home({ darkMode }) {
   };
 
   return (
+<<<<<<< HEAD
+    <div className="container mt-5 text-center">
+      <h1 className="home-title">React Setup Test</h1>
+      <p className="text-muted">
+        Testing JSX, CSS, Bootstrap, and JS
+      </p>
+      <button className="btn btn-success" onClick={handleClick}>
+        Test Everything
+      </button>
+      <Link to="/StudentDashboard" className="btn btn-success">
+         Student Dashboard
+      </Link>
+=======
     <div
       style={{
         minHeight: "100vh",
@@ -242,6 +261,7 @@ function Home({ darkMode }) {
           </div>
         </footer>
       </div>
+>>>>>>> origin/main
     </div>
   );
 }

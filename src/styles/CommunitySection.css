@@ -1,0 +1,15 @@
+.grid-bg {
+  /* background-color: #9871e0; */
+  background-color: hsl(262 83% 58%);
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+
+  background-size: 30px 30px;
+}
+.hero-image {
+  background-image: url("./images/logo.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

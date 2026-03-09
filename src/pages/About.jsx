@@ -1,9 +1,11 @@
+import CommunitySection from "../components/CommunitySection";
 import "../styles/About.css";
 
 const About = () => {
   return (
-    <section className="about-container">
-      <div className="about-content">
+    <section className="about-container ">
+      <CommunitySection/>
+      <div className="about-content max-w-6xl mx-auto">
         <h1>About Us</h1>
         <p className="about-tagline">
           Empowering learning through interactive and intelligent quizzes.

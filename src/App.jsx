@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home.jsx";
 import StudentDashboard from "./pages/StudentDashboard.jsx";
+import StudentProfile from "./pages/StudentProfile.jsx";
 import Certifications from "./pages/Certifications.jsx";
 import Partners from "./pages/Partener.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -47,6 +48,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home darkMode={darkMode} />} />
         <Route path="/dashboard" element={<StudentDashboard />} />
+        <Route path="/profile" element={<StudentProfile />} />
         <Route path="/certifications" element={<Certifications />} />
         <Route path="/partners" element={<Partners />} />
         <Route path="/about" element={<About />} />

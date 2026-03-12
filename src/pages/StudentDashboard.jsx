@@ -36,7 +36,7 @@ const StudentDashboard = () => {
           <span className="navbar-brand fw-bold gradient-text">QUIZCRED</span>
           <div className="d-flex align-items-center">
 
-              <Link to="/StudentProfile" className='btn avatar'>RS</Link>
+              <Link to="/profile" className='btn avatar'>RS</Link>
           </div>
         </div>
       </nav>

@@ -3,6 +3,7 @@ import "../styles/About.css";
 
 const About = () => {
   return (
+    
     <section className="about-container ">
       <CommunitySection/>
       <div className="about-content max-w-6xl mx-auto">

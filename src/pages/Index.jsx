@@ -7,7 +7,10 @@ import { Input } from "../components/ui/input";
 
 import { Search, BookOpen, Flame, Trophy, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
+<<<<<<< CertificationsAndPartners
+=======
 import FeaturesSection from "../components/FeatureSection";
+>>>>>>> main
 
 
 const quizzes = [
@@ -290,7 +293,11 @@ const Index = () => {
   }
 
   return (
+<<<<<<< CertificationsAndPartners
+    <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-20">
+=======
     <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-20 ">
+>>>>>>> main
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl float-animation" />
@@ -343,9 +350,12 @@ const Index = () => {
             </div>
           </div>
 
+<<<<<<< CertificationsAndPartners
+=======
           {/* feature section */}
           <FeaturesSection/>
 
+>>>>>>> main
           {/* Search */}
           <div className="max-w-xl mx-auto mb-12 fade-in-up stagger-4">
             <div className="relative group">

@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-import Home from "./pages/Home.jsx";
-import './App.css'
-import StudentDashboard from './pages/StudentDashBoard.jsx';
-import {BrowserRouter, Route, Routes } from 'react-router-dom';
-import StudentProfile from "./pages/StudentProfile.jsx";
-
-function App() {
-
-  return (
-    <BrowserRouter >
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/StudentDashboard' element={<StudentDashboard />} />
-        <Route path='/StudentProfile' element={<StudentProfile />} />
-      </Routes>
-    </BrowserRouter>
-  )
-=======
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -42,6 +23,23 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
+import Home from "./pages/Home.jsx";
+import './App.css'
+import StudentDashboard from './pages/StudentDashBoard.jsx';
+import {BrowserRouter, Route, Routes } from 'react-router-dom';
+import StudentProfile from "./pages/StudentProfile.jsx";
+
+function App() {
+
+  return (
+    <BrowserRouter >
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/StudentDashboard' element={<StudentDashboard />} />
+        <Route path='/StudentProfile' element={<StudentProfile />} />
+      </Routes>
+    </BrowserRouter>
+  )
     <QueryClientProvider client={queryClient}>
       {/* ✅ Navbar now visible on ALL pages */}
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
@@ -66,7 +64,7 @@ function App() {
       </Routes>
     </QueryClientProvider>
   );
->>>>>>> origin/main
+
 }
 
 export default App;

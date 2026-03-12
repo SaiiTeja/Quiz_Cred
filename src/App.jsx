@@ -28,15 +28,15 @@ function App() {
       <BrowserRouter>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <Routes>
-          <Route path="/" element={<Home darkMode={darkMode} />} />
-          <Route path="/dashboard" element={<StudentDashboard />} />
-          <Route path="/profile" element={<StudentProfile />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/partners" element={<Partners />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/quiz" element={<Index />} />
+      <Routes>
+        <Route path="/" element={<Home darkMode={darkMode} />} />
+        <Route path="/dashboard" element={<StudentDashboard />} />
+        <Route path="/profile" element={<StudentProfile />} />
+        <Route path="/certifications" element={<Certifications />} />
+        <Route path="/partners" element={<Partners />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/quiz" element={<Index />} />
 
           <Route path="/login" element={<Login darkMode={darkMode} />} />
           <Route path="/signup" element={<Signup darkMode={darkMode} />} />

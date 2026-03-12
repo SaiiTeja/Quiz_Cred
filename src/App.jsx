@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Home from "./pages/Home.jsx";
 import StudentDashboard from "./pages/StudentDashboard.jsx";
+import StudentProfile from "./pages/StudentProfile.jsx";
 import Certifications from "./pages/Certifications.jsx";
 import Partners from "./pages/Partener.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -23,48 +24,32 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-import Home from "./pages/Home.jsx";
-import './App.css'
-import StudentDashboard from './pages/StudentDashBoard.jsx';
-import {BrowserRouter, Route, Routes } from 'react-router-dom';
-import StudentProfile from "./pages/StudentProfile.jsx";
-
-function App() {
-
-  return (
-    <BrowserRouter >
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/StudentDashboard' element={<StudentDashboard />} />
-        <Route path='/StudentProfile' element={<StudentProfile />} />
-      </Routes>
-    </BrowserRouter>
-  )
     <QueryClientProvider client={queryClient}>
-      {/* ✅ Navbar now visible on ALL pages */}
-      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+      <BrowserRouter>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <Routes>
-        <Route path="/" element={<Home darkMode={darkMode} />} />
-        <Route path="/dashboard" element={<StudentDashboard />} />
-        <Route path="/certifications" element={<Certifications />} />
-        <Route path="/partners" element={<Partners />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/quiz" element={<Index />} />
+        <Routes>
+          <Route path="/" element={<Home darkMode={darkMode} />} />
+          <Route path="/dashboard" element={<StudentDashboard />} />
+          <Route path="/profile" element={<StudentProfile />} />
+          <Route path="/certifications" element={<Certifications />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/quiz" element={<Index />} />
 
-        <Route path="/login" element={<Login darkMode={darkMode} />} />
-        <Route path="/signup" element={<Signup darkMode={darkMode} />} />
-        <Route
-          path="/forgot-password"
-          element={<ForgotPassword darkMode={darkMode} />}
-        />
+          <Route path="/login" element={<Login darkMode={darkMode} />} />
+          <Route path="/signup" element={<Signup darkMode={darkMode} />} />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword darkMode={darkMode} />}
+          />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </QueryClientProvider>
   );
-
 }
 
 export default App;

@@ -1,5 +1,6 @@
 import React from "react";
 import CustomCard from "../components/CustomCard";
+import Testimonials from "../components/Testimonials";
 import "../styles/Certifications.css";
 
 const certifications = [
@@ -25,23 +26,28 @@ const certifications = [
 
 const Certifications = () => {
   return (
-    <section style={sectionStyle}>
-      <div style={containerStyle}>
-        <h2 style={titleStyle}>Our Certifications</h2>
+    <>
+      <section style={sectionStyle}>
+        <div style={containerStyle}>
+          <h2 style={titleStyle}>Our Certifications</h2>
 
-        <div style={gridStyle}>
-          {certifications.map((cert) => (
-            <div key={cert.id} style={cardWrapperStyle}>
-              <CustomCard
-                title={cert.title}
-                image={cert.image}
-                description={cert.description}
-              />
-            </div>
-          ))}
+          <div style={gridStyle}>
+            {certifications.map((cert) => (
+              <div key={cert.id} style={cardWrapperStyle}>
+                <CustomCard
+                  title={cert.title}
+                  image={cert.image}
+                  description={cert.description}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+      
+      {/* Testimonials Section */}
+      <Testimonials />
+    </>
   );
 };
 

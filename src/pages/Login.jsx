@@ -78,6 +78,7 @@ const Login = ({ darkMode }) => {
 
       {/* Content */}
       <div
+        className="login-wrapper"
         style={{
           position: "relative",
           zIndex: 2,
@@ -88,8 +89,8 @@ const Login = ({ darkMode }) => {
         }}
       >
         <div
+          className="login-card"
           style={{
-            width: "900px",
             display: "flex",
             background: darkMode
               ? "rgba(17,24,39,0.85)"

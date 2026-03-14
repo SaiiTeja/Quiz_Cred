@@ -1,142 +1,160 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
-  const theme = {
-    background: darkMode ? "#0a0a0f" : "#ffffff",
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    text: darkMode ? "#ffffff" : "#262626",
+  const navigationItems = [
+    { label: "Home", path: "/" },
+    { label: "Quiz", path: "/quiz" },
+    { label: "Dashboard", path: "/dashboard" },
+    { label: "Certifications", path: "/certifications" },
+    { label: "Partners", path: "/partners" },
+    { label: "About", path: "/about" },
+    { label: "Contact", path: "/contact" },
+  ];
 
-    primary: darkMode ? "linear-gradient(90deg, #2563eb, #1e3a8a)" : "#0095F6",
-
-    border: darkMode ? "1px solid #1f2937" : "1px solid #dbdbdb",
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
-    <nav
-      style={{
-        width: "100%",
-        background: theme.background,
-        borderBottom: theme.border,
-        position: "sticky",
-        top: 0,
-        zIndex: 1000,
-        transition: "0.3s",
-      }}
-    >
-      <div style={styles.container}>
-        {/* LOGO */}
-        <div style={styles.brand}>
-          <img
-            src="/images/logo.jpeg"
-            alt="Quiz Cred Logo"
-            style={styles.logoImg}
-          />
-          <h3 style={{ ...styles.logoText, color: theme.text }}>QuizCred</h3>
-        </div>
+    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 border-b ${
+      darkMode 
+        ? 'bg-[#0a0a0f] border-gray-800' 
+        : 'bg-white border-gray-200'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          
+          {/* Left Section: Logo + Navigation */}
+          <div className="flex items-center">
+            {/* Logo */}
+            <div className="flex items-center gap-3 mr-8">
+              <img
+                src="/images/logo.jpeg"
+                alt="Quiz Cred Logo"
+                className="h-10 w-10 rounded-full object-cover"
+              />
+              <h3 className={`text-xl font-bold ${
+                darkMode ? 'text-white' : 'text-gray-900'
+              }`}>
+                QuizCred
+              </h3>
+            </div>
 
-        {/* NAV LINKS */}
-        <div style={styles.links}>
-          {[
-            { label: "Home", path: "/" },
-            { label: "Quiz", path: "/quiz" },
-            { label: "Certifications", path: "/certifications" },
-            { label: "Partners", path: "/partners" },
-            { label: "Contact", path: "/contact" },
-            { label: "Dashboard", path: "/dashboard" },
-            { label: "About", path: "/about" },
-          ].map((item, index) => (
-            <Link
-              key={index}
-              to={item.path}
-              style={{
-                ...styles.link,
-                color: darkMode ? theme.text : "#0095F6",
-                fontWeight: darkMode ? "500" : "600",
-              }}
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-6">
+              {navigationItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `no-underline px-3 py-2 text-sm font-medium transition-all duration-200 ${
+                      isActive
+                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
+                        : darkMode
+                        ? 'text-gray-300 hover:text-blue-400'
+                        : 'text-gray-700 hover:text-blue-600'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Section: Login + Theme Toggle */}
+          <div className="flex items-center gap-4">
+            {/* Login Button */}
+            <NavLink
+              to="/login"
+              className={`no-underline hidden sm:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200 ${
+                darkMode
+                  ? 'bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 shadow-lg shadow-blue-500/25'
+                  : 'bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25'
+              }`}
             >
-              {item.label}
-            </Link>
-          ))}
+              Login
+            </NavLink>
 
-          {/* LOGIN BUTTON */}
-          <Link
-            to="/login"
-            style={{
-              marginLeft: "20px",
-              padding: "8px 20px",
-              borderRadius: "25px",
-              textDecoration: "none",
-              fontWeight: "600",
-              background: theme.primary,
-              color: "#fff",
-              boxShadow: darkMode
-                ? "0 4px 15px rgba(0,0,0,0.4)"
-                : "0 4px 14px rgba(0,149,246,0.3)",
-              transition: "0.3s",
-            }}
-          >
-            Login
-          </Link>
+            {/* Theme Toggle */}
+            <button
+              onClick={() => setDarkMode(!darkMode)}
+              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+                darkMode
+                  ? 'bg-white text-gray-900 hover:bg-gray-100'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-300'
+              }`}
+              aria-label="Toggle dark mode"
+            >
+              {darkMode ? "☀️" : "🌙"}
+            </button>
 
-          {/* DARK MODE BUTTON */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            style={{
-              marginLeft: "15px",
-              width: "38px",
-              height: "38px",
-              borderRadius: "50%",
-              border: darkMode ? "none" : "1px solid #dbdbdb",
-              cursor: "pointer",
-              background: darkMode ? "#fff" : "#f5f5f5",
-              color: darkMode ? "#000" : "#262626",
-              transition: "0.3s",
-            }}
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className={`lg:hidden w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200 ${
+                darkMode
+                  ? 'text-white hover:bg-gray-800'
+                  : 'text-gray-600 hover:bg-gray-100'
+              }`}
+              aria-label="Toggle mobile menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className={`lg:hidden border-t ${
+            darkMode ? 'border-gray-800' : 'border-gray-200'
+          }`}>
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navigationItems.map((item) => (
+                <NavLink
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `no-underline block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                      isActive
+                        ? 'text-blue-600 bg-blue-50 border-l-4 border-blue-600'
+                        : darkMode
+                        ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              ))}
+              
+              {/* Mobile Login Button */}
+              <NavLink
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`no-underline block mt-4 mx-3 px-4 py-2 rounded-full text-center text-sm font-semibold text-white transition-all duration-200 ${
+                  darkMode
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-800'
+                    : 'bg-blue-600'
+                }`}
+              >
+                Login
+              </NavLink>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );
-};
-
-const styles = {
-  container: {
-    maxWidth: "1200px",
-    margin: "0 auto",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "14px 20px",
-    flexWrap: "wrap",
-  },
-  brand: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-  },
-  logoImg: {
-    height: "42px",
-    width: "42px",
-    borderRadius: "50%",
-    objectFit: "cover",
-  },
-  logoText: {
-    margin: 0,
-    fontSize: "20px",
-    fontWeight: "700",
-  },
-  links: {
-    display: "flex",
-    alignItems: "center",
-    gap: "18px",
-    flexWrap: "wrap",
-  },
-  link: {
-    textDecoration: "none",
-    transition: "0.2s",
-  },
 };
 
 export default Navbar;

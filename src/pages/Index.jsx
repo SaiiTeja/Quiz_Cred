@@ -7,10 +7,7 @@ import { Input } from "../components/ui/input";
 
 import { Search, BookOpen, Flame, Trophy, Sparkles } from "lucide-react";
 import { cn } from "../lib/utils";
-<<<<<<< CertificationsAndPartners
-=======
 import FeaturesSection from "../components/FeatureSection";
->>>>>>> main
 
 
 const quizzes = [
@@ -293,11 +290,7 @@ const Index = () => {
   }
 
   return (
-<<<<<<< CertificationsAndPartners
-    <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-20">
-=======
     <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-20 ">
->>>>>>> main
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl float-animation" />
@@ -350,24 +343,21 @@ const Index = () => {
             </div>
           </div>
 
-<<<<<<< CertificationsAndPartners
-=======
           {/* feature section */}
           <FeaturesSection/>
 
->>>>>>> main
           {/* Search */}
           <div className="max-w-xl mx-auto mb-12 fade-in-up stagger-4">
             <div className="relative group">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl blur opacity-0 group-hover:opacity-20 transition duration-300" />
               <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" />
-                <Input
-                  placeholder="Search quizzes by name or category..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-12 py-3 text-base bg-card border-primary/20 text-foreground placeholder:text-muted-foreground focus:border-primary focus:ring-primary/30 rounded-xl transition-all duration-300"
-                />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none z-10" />
+              <input
+                placeholder="Search quizzes by name or category..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 text-base bg-card border border-primary/20 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary rounded-xl transition-all duration-300"
+              />
               </div>
             </div>
           </div>

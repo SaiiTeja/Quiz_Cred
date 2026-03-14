@@ -8,7 +8,7 @@ import {
   chartDataStrength, 
   recommendations, 
   stats 
-} from '../utils/Student_Dash_logic';
+} from '../utils/student_dash_logic.js';
 
 import {
   Chart as ChartJS,

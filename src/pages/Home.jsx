@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import darkThemeImage from "../assets/theme.png";
 import lightThemeImage from "../assets/whitetheme.png";
 import "../styles/Home.css";
+import Footer from "../components/Footer";
+import useTheme from "../hooks/useTheme";
 
 function Home({ darkMode }) {
+  // const {theme} = useTheme();
   const navigate = useNavigate();
   const [hoveredCard, setHoveredCard] = useState(null);
 
@@ -214,97 +217,7 @@ function Home({ darkMode }) {
           })}
         </div>
 
-        {/* FOOTER */}
-        <footer
-          style={{
-            marginTop: "auto",
-            padding: "60px 40px 30px",
-            borderTop: darkMode
-              ? "1px solid rgba(255,255,255,0.1)"
-              : "1px solid rgba(0,0,0,0.05)",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              flexWrap: "wrap",
-              gap: "40px",
-              marginBottom: "40px",
-            }}
-          >
-            <div style={{ maxWidth: "300px" }}>
-              <h3 style={{ marginBottom: "15px" }}>QuizCred</h3>
-              <p style={{ color: theme.subText }}>
-                Empowering learners to grow their skills through smart quizzes
-                and competitive challenges.
-              </p>
-            </div>
-
-            <div>
-              <h4 style={{ marginBottom: "15px" }}>Quick Links</h4>
-              {[
-                { label: "Home", path: "/" },
-                { label: "About", path: "/about" },
-                { label: "Contact", path: "/contact" },
-                { label: "Dashboard", path: "/dashboard" },
-              ].map((item, i) => (
-                <p
-                  key={i}
-                  onClick={() => navigate(item.path)}
-                  style={{
-                    color: darkMode ? theme.footerText : "#0095F6",
-                    cursor: "pointer",
-                    marginBottom: "8px",
-                    fontWeight: "500",
-                  }}
-                >
-                  {item.label}
-                </p>
-              ))}
-            </div>
-
-            <div>
-              <h4 style={{ marginBottom: "15px" }}>Connect</h4>
-              {[
-                {
-                  label: "📸 Instagram",
-                  url: "https://www.instagram.com/quiz.cred/",
-                },
-                { label: "💼 LinkedIn", url: "https://linkedin.com" },
-                { label: "🐦 Twitter", url: "https://twitter.com" },
-                { label: "📧 Email", url: "mailto:your@email.com" },
-              ].map((item, i) => (
-                <p
-                  key={i}
-                  onClick={() => window.open(item.url, "_blank")}
-                  style={{
-                    color: darkMode ? theme.footerText : "#0095F6",
-                    cursor: "pointer",
-                    marginBottom: "8px",
-                    fontWeight: "500",
-                  }}
-                >
-                  {item.label}
-                </p>
-              ))}
-            </div>
-          </div>
-
-          <div
-            style={{
-              textAlign: "center",
-              paddingTop: "20px",
-              borderTop: darkMode
-                ? "1px solid rgba(255,255,255,0.1)"
-                : "1px solid rgba(0,0,0,0.05)",
-              color: theme.footerText,
-              fontSize: "14px",
-            }}
-          >
-            © 2026 QuizCred. All Rights Reserved.
-          </div>
-        </footer>
+       
       </div>
     </div>
   );

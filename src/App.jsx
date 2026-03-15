@@ -17,6 +17,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
 import "./App.css";
+import Footer from "./components/Footer.jsx";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +27,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Navbar />
 
       <Routes>
         <Route path="/" element={<Home darkMode={darkMode} />} />
@@ -47,6 +48,7 @@ function App() {
 
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </QueryClientProvider>
   );

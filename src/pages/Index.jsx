@@ -188,7 +188,7 @@ const Index = () => {
     const percentage = Math.round((score / sampleQuestions.length) * 100);
     
     return (
-      <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-24 p-4 md:p-8 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background pt-24 p-4 md:p-8 flex items-center justify-center">
         <div className="max-w-2xl w-full space-y-8">
           <div className="glass-card p-8 md:p-10 space-y-6 border border-primary/30 fade-in-up">
             <div className="text-center space-y-3">
@@ -290,7 +290,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-[#0f1a2e] to-background pt-20 ">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background pt-20 ">
       {/* Animated background elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-80 h-80 bg-primary/5 rounded-full blur-3xl float-animation" />

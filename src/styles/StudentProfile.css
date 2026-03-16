@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --primary-color: #6366f1;
   --primary-hover: #4f46e5;
   --primary-light: #818cf8;
@@ -27,7 +27,7 @@ html, body, #root {
   margin: 0 !important;
   padding: 0 !important;
   overflow-x: hidden !important;
-}
+} */
 
 .student-profile-container {
   width: 100% !important;

@@ -3,20 +3,20 @@ import { useNavigate } from "react-router-dom";
 import darkThemeImage from "../assets/theme.png";
 import lightThemeImage from "../assets/whitetheme.png";
 import "../styles/Home.css";
-import Footer from "../components/Footer";
 import useTheme from "../hooks/useTheme";
 
 function Home({ darkMode }) {
-  // const {theme} = useTheme();
+   const {theme} = useTheme();
   const navigate = useNavigate();
-  const [hoveredCard, setHoveredCard] = useState(null);
+  // const [hoveredCard, setHoveredCard] = useState(null);
+  const isDarkMode = theme === "dark";
 
-  const theme = {
-    text: darkMode ? "#ffffff" : "#111827",
-    subText: darkMode ? "#9ca3af" : "#374151",
-    footerText: darkMode ? "#6b7280" : "#4b5563",
-    primary: darkMode ? "linear-gradient(90deg, #2563eb, #1e3a8a)" : "#0095F6",
-  };
+  // const theme = {
+  //   text: darkMode ? "#ffffff" : "#111827",
+  //   subText: darkMode ? "#9ca3af" : "#374151",
+  //   footerText: darkMode ? "#6b7280" : "#4b5563",
+  //   primary: darkMode ? "linear-gradient(90deg, #2563eb, #1e3a8a)" : "#0095F6",
+  // };
 
   return (
     <div
@@ -33,13 +33,13 @@ function Home({ darkMode }) {
           position: "absolute",
           inset: 0,
           backgroundImage: `url(${
-            darkMode ? darkThemeImage : lightThemeImage
+            isDarkMode ? darkThemeImage : lightThemeImage
           })`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundAttachment: "fixed",
-          filter: darkMode ? "none" : "blur(1px) brightness(1.05)",
+          filter: isDarkMode? "none" : "blur(1px) brightness(1.05)",
           transform: "scale(1.02)",
           zIndex: 0,
         }}
@@ -47,12 +47,13 @@ function Home({ darkMode }) {
 
       {/* Overlay */}
       <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          background: darkMode ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.6)",
-          zIndex: 1,
-        }}
+        // style={{
+        //   position: "absolute",
+        //   inset: 0,
+        //   background: darkMode ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.6)",
+        //   zIndex: 1,
+        // }}
+        className="absolute inset-0 z-1 bg-background/60"
       />
 
       {/* Content */}
@@ -114,33 +115,33 @@ function Home({ darkMode }) {
       { icon: "🎯", title: "Identify Weak Areas", text: "Understand what you need to improve." },
       { icon: "🏆", title: "Improve & Compete", text: "Practice more and compete with others." },
     ].map((step, i) => {
-      const isHovered = hoveredCard === i + 10;
-
+  
       return (
         <div
           key={i}
-          className="how-card"
-          onMouseEnter={() => setHoveredCard(i + 10)}
-          onMouseLeave={() => setHoveredCard(null)}
-          style={{
-            background: darkMode
-              ? "rgba(17,24,39,0.75)"
-              : "rgba(255,255,255,0.9)",
-            backdropFilter: "blur(10px)",
-            border: darkMode
-              ? "1px solid rgba(255,255,255,0.1)"
-              : "1px solid rgba(0,0,0,0.05)",
-            padding: "30px",
-            borderRadius: "20px",
-            width: "240px",
-            textAlign: "center",
-            transition: "all 0.3s ease",
-            transform: isHovered ? "scale(1.05)" : "scale(1)",
-            boxShadow: isHovered
-              ? "0 15px 30px rgba(0,0,0,0.1)"
-              : "0 4px 10px rgba(0,0,0,0.05)",
-            cursor: "pointer",
-          }}
+          
+          // onMouseEnter={() => setHoveredCard(i + 10)}
+          // onMouseLeave={() => setHoveredCard(null)}
+          className="how-card bg-background text-foreground  backdrop-blur-md border border-border p-8 rounded-xl w-3xs text-center transition-all hover:scale-[1.05] shadow-md cursor-pointer"
+          // style={{
+          //   background: darkMode
+          //     ? "rgba(17,24,39,0.75)"
+          //     : "rgba(255,255,255,0.9)",
+          //   backdropFilter: "blur(10px)",
+          //   border: darkMode
+          //     ? "1px solid rgba(255,255,255,0.1)"
+          //     : "1px solid rgba(0,0,0,0.05)",
+          //   padding: "30px",
+          //   borderRadius: "20px",
+          //   width: "240px",
+          //   textAlign: "center",
+          //   transition: "all 0.3s ease",
+          //   transform: isHovered ? "scale(1.05)" : "scale(1)",
+          //   boxShadow: isHovered
+          //     ? "0 15px 30px rgba(0,0,0,0.1)"
+          //     : "0 4px 10px rgba(0,0,0,0.05)",
+          //   cursor: "pointer",
+          // }}
         >
           <div className="how-icon">
             {step.icon}
@@ -150,7 +151,7 @@ function Home({ darkMode }) {
             {step.title}
           </h3>
 
-          <p style={{ color: theme.subText }}>
+          <p className="text-muted-foreground">
             {step.text}
           </p>
         </div>
@@ -161,7 +162,7 @@ function Home({ darkMode }) {
 </div>
 
         {/* FEATURES */}
-        <div style={{ textAlign: "center" }}>
+        <div className="text-center">
   <h2 className="how-title">
     Features
   </h2>
@@ -183,35 +184,36 @@ function Home({ darkMode }) {
             { title: "🏆 Compete", text: "Challenge friends and rank higher." },
             { title: "🚀 Learn", text: "Track your progress and level up." },
           ].map((item, i) => {
-            const isHovered = hoveredCard === i;
+            
 
             return (
               <div
                 key={i}
-                onMouseEnter={() => setHoveredCard(i)}
-                onMouseLeave={() => setHoveredCard(null)}
-                style={{
-                  background: darkMode
-                    ? "rgba(17,24,39,0.75)"
-                    : "rgba(255,255,255,0.9)",
-                  backdropFilter: "blur(10px)",
-                  border: darkMode
-                    ? "1px solid rgba(255,255,255,0.1)"
-                    : "1px solid rgba(0,0,0,0.05)",
-                  padding: "30px",
-                  borderRadius: "20px",
-                  width: "260px",
-                  textAlign: "center",
-                  transition: "all 0.3s ease",
-                  transform: isHovered ? "scale(1.05)" : "scale(1)",
-                  boxShadow: isHovered
-                    ? "0 15px 30px rgba(0,0,0,0.1)"
-                    : "0 4px 10px rgba(0,0,0,0.05)",
-                  cursor: "pointer",
-                }}
+                // onMouseEnter={() => setHoveredCard(i)}
+                // onMouseLeave={() => setHoveredCard(null)}
+                 className="bg-background text-foreground  backdrop-blur-md border border-border p-8 rounded-xl w-3xs text-center transition-all hover:scale-[1.05] shadow-md cursor-pointer"
+                // style={{
+                //   background: darkMode
+                //     ? "rgba(17,24,39,0.75)"
+                //     : "rgba(255,255,255,0.9)",
+                //   backdropFilter: "blur(10px)",
+                //   border: darkMode
+                //     ? "1px solid rgba(255,255,255,0.1)"
+                //     : "1px solid rgba(0,0,0,0.05)",
+                //   padding: "30px",
+                //   borderRadius: "20px",
+                //   width: "260px",
+                //   textAlign: "center",
+                //   transition: "all 0.3s ease",
+                //   transform: isHovered ? "scale(1.05)" : "scale(1)",
+                //   boxShadow: isHovered
+                //     ? "0 15px 30px rgba(0,0,0,0.1)"
+                //     : "0 4px 10px rgba(0,0,0,0.05)",
+                //   cursor: "pointer",
+                // }}
               >
                 <h3 style={{ marginBottom: "10px" }}>{item.title}</h3>
-                <p style={{ color: theme.subText }}>{item.text}</p>
+                <p className="text-muted-foreground">{item.text}</p>
               </div>
             );
           })}

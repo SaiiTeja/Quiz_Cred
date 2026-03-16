@@ -1,47 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@import "./styles/theme.css";
+@custom-variant dark (&:is(.dark *));
+
 
 @layer base {
-  :root {
-    --background: 7 13% 10%;
-    --foreground: 0 0% 98%;
-
-    --card: 217 32% 17%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 217 32% 17%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 217 91% 60%;
-    --primary-foreground: 217 32% 17%;
-
-    --secondary: 217 32% 25%;
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 217 32% 20%;
-    --muted-foreground: 217 10% 65%;
-
-    --accent: 262 83% 58%;
-    --accent-foreground: 0 0% 98%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217 32% 22%;
-    --input: 217 32% 22%;
-    --ring: 217 91% 60%;
-
-    --radius: 0.75rem;
-
-    --quiz-option-a: 217 91% 60%;
-    --quiz-option-b: 262 83% 58%;
-    --quiz-option-c: 142 76% 36%;
-    --quiz-option-d: 38 92% 50%;
-    --quiz-correct: 142 76% 36%;
-    --quiz-incorrect: 0 84% 60%;
-  }
-
   body {
     @apply bg-background text-foreground;
   }
@@ -110,8 +72,6 @@
     @apply translate-y-[-4px] shadow-lg;
   }
 }
-
-@layer utilities {
   /* Animation Keyframes */
   @keyframes fadeInUp {
     from {
@@ -136,19 +96,28 @@
   }
 
   @keyframes shakeAnimation {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateX(0);
     }
-    10%, 30%, 50%, 70%, 90% {
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
       transform: translateX(-5px);
     }
-    20%, 40%, 60%, 80% {
+    20%,
+    40%,
+    60%,
+    80% {
       transform: translateX(5px);
     }
   }
 
   @keyframes floatAnimation {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -157,13 +126,17 @@
   }
 
   @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
       box-shadow: 0 0 10px rgba(149, 165, 250, 0.3);
     }
     50% {
       box-shadow: 0 0 20px rgba(149, 165, 250, 0.6);
     }
   }
+
+@layer utilities {
+
 
   /* Animation Utility Classes */
   .fade-in-up {

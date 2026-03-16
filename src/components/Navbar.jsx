@@ -24,11 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 border-b ${
-      isDarkMode 
-        ? 'bg-[#0a0a0f] border-gray-800' 
-        : 'bg-white border-gray-200'
-    }`}>
+    <nav className={`w-full sticky top-0 z-50 transition-all duration-300 border-b border-border bg-background `}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           

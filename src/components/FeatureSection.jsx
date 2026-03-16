@@ -36,7 +36,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <section className="py-16 px-6 bg-accent">
+    <section className="py-16 px-6 ">
       <div className="max-w-6xl mx-auto">
         {/* Section Heading */}
         <div className="text-center mb-12">
@@ -57,17 +57,17 @@ export default function FeaturesSection() {
             return (
               <Card
                 key={index}
-                className="min-w-[240px] max-w-[320px] w-full transition-colors duration-200 bg-gradient-to-t from-muted  hover:from-white/10 hover:from-5% hover:to-blue-950 to-blue-950 hover:shadow-sm border-0"
+                className="min-w-[240px] max-w-[320px] w-full text-foreground transition-colors duration-200 bg-card hover:scale-[1.01] transition-transform shadow-lg border border-border"
               >
                 <CardHeader className="flex items-start gap">
-                  <div className="p-2 rounded-md bg-white/10 group-hover">
-                    <Icon className="w-5 h-5" />
+                  <div className="p-2 rounded-md bg-primary/10 ">
+                    <Icon className="w-5 h-5  text-primary" />
                   </div>
                   <CardTitle className="text-lg">{feature.title}</CardTitle>
                 </CardHeader>
 
                 <CardContent>
-                  <CardDescription className="text-sm text-white/70">
+                  <CardDescription className="text-sm text-muted-foreground">
                     {feature.description}
                   </CardDescription>
                 </CardContent>

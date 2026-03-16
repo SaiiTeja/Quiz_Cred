@@ -1,4 +1,4 @@
-/* Global Colors */
+/* Global Colors
 html, body {
   overflow-x: hidden;
   width: 100vw !important;
@@ -43,11 +43,11 @@ html, body {
   height: 100vh !important;
   margin: 0 !important;
   padding: 0 !important;
-}
+} */
 
 /* Main Container */
 .dashboard-container {
-  background-color: var(--bg-dark);
+  /* background-color: var(--bg-dark); */
   color: var(--text-light);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   width: 100vw !important;

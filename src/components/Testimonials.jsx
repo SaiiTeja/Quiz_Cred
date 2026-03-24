@@ -50,23 +50,23 @@ const TestimonialCard = ({ testimonial }) => {
     <div className="startup-card p-6 text-center h-full flex flex-col justify-between group">
       {/* Profile Image */}
       <div className="flex flex-col items-center mb-4">
-        <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-blue-400/30 group-hover:border-blue-400/60 transition-all duration-300">
+        <div className="w-20 h-20 rounded-full overflow-hidden mb-4 border-2 border-secondary-foreground  transition-all duration-300">
           <img
             src={testimonial.image}
             alt={testimonial.name}
             className="w-full h-full object-cover"
             onError={(e) => {
               // Fallback to a placeholder if image doesn't exist
-              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=3b82f6&color=ffffff&size=128`;
+              e.target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=7c3bed&color=ffffff&size=128`;
             }}
           />
         </div>
         
         {/* Student Info */}
-        <h4 className="text-white font-semibold text-lg mb-1">
+        <h4 className="text-foreground font-semibold text-lg mb-1">
           {testimonial.name}
         </h4>
-        <p className="text-blue-300 text-sm mb-4">
+        <p className="text-muted-foreground text-sm mb-4">
           {testimonial.role}
         </p>
       </div>
@@ -75,7 +75,7 @@ const TestimonialCard = ({ testimonial }) => {
       <StarRating rating={testimonial.rating} />
 
       {/* Feedback */}
-      <p className="text-gray-300 text-sm leading-relaxed italic flex-1 flex items-center">
+      <p className="text-muted-foreground text-sm leading-relaxed italic flex-1 flex items-center">
         "{testimonial.feedback}"
       </p>
     </div>
@@ -84,15 +84,15 @@ const TestimonialCard = ({ testimonial }) => {
 
 const Testimonials = () => {
   return (
-    <section className="py-20 px-5" style={{ backgroundColor: '#0b1220' }}>
+    <section className=" px-5" >
       <div className="max-w-6xl mx-auto">
         {/* Section Title */}
-        <h2 className="section-title text-center text-4xl font-bold mb-16">
+        <h2 className=" text-center text-4xl font-bold mb-16">
           Student Testimonials
         </h2>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10">
           {testimonialsData.map((testimonial) => (
             <div key={testimonial.id} className="h-full">
               <TestimonialCard testimonial={testimonial} />

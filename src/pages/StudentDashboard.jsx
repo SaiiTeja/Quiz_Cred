@@ -31,7 +31,7 @@ ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarEleme
 const StudentDashboard = () => {
   return (
     <div className="dashboard-container min-vh-100">
-      <nav className="navbar navbar-dark bg-dark-custom px-4 shadow-sm mb-0">        
+      <nav className="navbar navbar-dark  px-4 shadow-sm mb-0">        
         <div className="container-fluid">
           <span className="navbar-brand fw-bold gradient-text">QUIZCRED</span>
           <div className="d-flex align-items-center">

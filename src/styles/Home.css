@@ -38,8 +38,8 @@
 }
 
 .primary-btn {
-  background: #2563eb;
-  color: white;
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
 }
 
 

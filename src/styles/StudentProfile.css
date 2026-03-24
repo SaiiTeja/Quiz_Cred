@@ -494,12 +494,7 @@ html, body, #root {
   border-radius: var(--border-radius);
 }
 
-.section-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: var(--text-primary);
-}
+
 
 .form-group { margin-bottom: 20px; }
 

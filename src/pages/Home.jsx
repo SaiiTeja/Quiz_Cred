@@ -8,15 +8,9 @@ import useTheme from "../hooks/useTheme";
 function Home({ darkMode }) {
    const {theme} = useTheme();
   const navigate = useNavigate();
-  // const [hoveredCard, setHoveredCard] = useState(null);
   const isDarkMode = theme === "dark";
 
-  // const theme = {
-  //   text: darkMode ? "#ffffff" : "#111827",
-  //   subText: darkMode ? "#9ca3af" : "#374151",
-  //   footerText: darkMode ? "#6b7280" : "#4b5563",
-  //   primary: darkMode ? "linear-gradient(90deg, #2563eb, #1e3a8a)" : "#0095F6",
-  // };
+
 
   return (
     <div
@@ -47,28 +41,16 @@ function Home({ darkMode }) {
 
       {/* Overlay */}
       <div
-        // style={{
-        //   position: "absolute",
-        //   inset: 0,
-        //   background: darkMode ? "rgba(0,0,0,0.65)" : "rgba(255,255,255,0.6)",
-        //   zIndex: 1,
-        // }}
+       
         className="absolute inset-0 z-1 bg-background/60"
       />
 
       {/* Content */}
       <div
-        style={{
-          position: "relative",
-          zIndex: 2,
-          color: theme.text,
-          display: "flex",
-          flexDirection: "column",
-          minHeight: "100vh",
-        }}
+        className="relative z-2 flex flex-col min-h-[100vh]"
       >
         {/* HERO SECTION */}
-        <div style={{ textAlign: "center", padding: "120px 20px" }}>
+        <div  className="text-center py-30 px-5 ">
           <h1 className="hero-title">
   Discover Your Real Skills Before the Industry Does
 </h1>

@@ -1,49 +1,5 @@
-/* Global Colors
-html, body {
-  overflow-x: hidden;
-  width: 100vw !important;
-  height: 100vh !important;
-}
 
-#root {
-  width: 100vw !important;
-  height: 100vh !important;
-}
 
-:root {
-  --primary: #6366f1;
-  --primary-light: #818cf8;
-  --success: #10b981;
-  --info: #06b6d4;
-  --danger: #ef4444;
-  --bg-dark: #080c16;
-  --bg-darker: #020617;
-  --bg-card: #0b111e;
-  --text-light: #f1f5f9;
-  --text-muted: #cbd5e1;
-  --border: #334155;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
-  width: 100vw !important;
-  height: 100vh !important;
-}
-
-#root {
-  width: 100vw !important;
-  height: 100vh !important;
-  margin: 0 !important;
-  padding: 0 !important;
-} */
 
 /* Main Container */
 .dashboard-container {

@@ -14,10 +14,10 @@ export default function CommunitySection() {
             QuizCred is more than quizzes. It is a growing community of learners
             competing, collaborating, and building real skills together.
           </p>
-          <div className="flex justify-start gap-4 mt-2 flex-wrap">
+          <div className="flex justify-start gap-4 mt-4 flex-wrap">
             <Button
               size="lg"
-              className="rounded-full bg-foreground hover:bg-foreground/80"
+              className="rounded-full bg-background text-foreground hover:bg-muted"
             >
               Join Community
             </Button>

@@ -1,7 +1,7 @@
 .contact-container {
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(135deg, #020b2d, #04164d);
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,22 +12,24 @@
 .contact-box {
   width: 100%;
   max-width: 720px; /* wider form */
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--color-card);
   padding: 45px;
   border-radius: 22px;
-  color: white;
+  
   backdrop-filter: blur(14px);
 }
 
 .contact-box h1 {
   text-align: left;
   margin-bottom: 8px;
+  font-weight: 700;
+  font-size: large;
 }
 
 .contact-box p {
   text-align: left;
   margin-bottom: 30px;
-  color: #cbd5ff;
+  color: var(--color-muted-foreground);
 }
 
 .contact-box form {
@@ -39,10 +41,10 @@
 .contact-box input,
 .contact-box textarea {
   background: transparent;
-  border: 1px solid #5fa8ff;
+  border: 1px solid var(--color-primary);
   padding: 14px;
   border-radius: 12px;
-  color: white;
+  
   outline: none;
   font-size: 1rem;
 }
@@ -59,20 +61,20 @@
 
 .contact-box button {
   margin-top: 10px;
-  background: #2563eb;
+  background: var(--color-primary);
   border: none;
   padding: 14px;
   border-radius: 14px;
-  color: white;
+  color: var(--color-primary-foreground);
   cursor: pointer;
   font-weight: bold;
   font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .contact-box button:hover {
-  background: #1e40af;
-  transform: translateY(-2px);
+  background: color-mix(in oklab, var(--color-primary) , black 10%);
+ 
 }
 
 /* Mobile tweaks */

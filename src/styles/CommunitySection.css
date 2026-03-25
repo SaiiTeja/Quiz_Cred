@@ -1,12 +1,22 @@
 .grid-bg {
-  /* background-color: #9871e0; */
-  background-color: hsl(262 83% 58%);
+  background-color: var(--color-primary);
 
   background-image:
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(255, 255, 255, 0.15),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 90%,
+      rgba(255, 255, 255, 0.08),
+      transparent 50%
+    ),
     linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 
-  background-size: 30px 30px;
+  background-size: auto, auto, 30px 30px, 30px 30px;
+  color: var(--color-primary-foreground);
 }
 .hero-image {
   background-image: url("./images/logo.jpeg");

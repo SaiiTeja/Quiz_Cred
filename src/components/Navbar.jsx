@@ -29,7 +29,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           
           {/* Left Section: Logo + Navigation */}
-          <div className="flex items-center">
+       
             {/* Logo */}
             <div className="flex items-center gap-3 mr-8">
               <img
@@ -45,37 +45,27 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div className="hidden lg:flex items-center gap-4">
               {navigationItems.map((item) => (
                 <NavLink
                   key={item.path}
                   to={item.path}
                   className={({ isActive }) =>
-                    `no-underline px-3 py-2 text-sm font-medium transition-all duration-200 ${
-                      isActive
-                        ? 'text-blue-600 border-b-2 border-blue-600 pb-1'
-                        : isDarkMode
-                        ? 'text-gray-300 hover:text-blue-400'
-                        : 'text-gray-700 hover:text-blue-600'
-                    }`
+                    `no-underline px-3 py-2 text-sm font-medium transition-all duration-200 hover:text-primary ${isActive?"text-primary border-b-2 border-primary":" "  }  `
                   }
                 >
                   {item.label}
                 </NavLink>
               ))}
             </div>
-          </div>
+          
 
           {/* Right Section: Login + Theme Toggle */}
           <div className="flex items-center gap-4">
             {/* Login Button */}
             <NavLink
               to="/login"
-              className={`no-underline hidden sm:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200 ${
-                isDarkMode
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 shadow-lg shadow-blue-500/25'
-                  : 'bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/25'
-              }`}
+              className={`no-underline hidden sm:inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold text-white transition-all duration-200 bg-primary shadow-lg `}
             >
               Login
             </NavLink>
@@ -83,14 +73,10 @@ const Navbar = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
-                isDarkMode
-                  ? 'bg-white text-gray-900 hover:bg-gray-100'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 border border-gray-300'
-              }`}
+              className={`w-10 h-10 rounded-full flex items-center justify-center  bg-muted  group`}
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? "☀️" : "🌙"}
+              <span className="group-hover:scale-[1.1] transition-transform ease-out">{isDarkMode ? "☀️" : "🌙"}</span>
             </button>
 
             {/* Mobile Menu Button */}

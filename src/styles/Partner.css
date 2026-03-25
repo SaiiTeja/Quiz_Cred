@@ -1,45 +1,23 @@
-/* :root {
-  --bg-dark: #0b1220;
-  --bg-card: #0f1b33;
-  --primary: #3b82f6;
-  --accent: #60a5fa;
-  --text-main: #e5e7eb;
-  --text-muted: #9ca3af;
-  --border-glow: rgba(59, 130, 246, 0.35);
-} */
-
-/* body {
-  background-color: var(--bg-dark);
-  color: var(--text-main);
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-} */
-
-/* Section Title */
-.section-title {
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  font-size: 2rem;
-  background: linear-gradient(90deg, #60a5fa, #3b82f6);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ========================= */
-/* LOGO SLIDER */
-/* ========================= */
-
-.logo-slider {
+.logo-carousel {
+  --logo-card-w: 10rem;
+  --logo-card-h: 8rem;
+  --logo-gap: 1.5rem;
+  --logo-total-gap: calc(var(--card-count) * var(--logo-gap) + var(--logo-gap));
   overflow: hidden;
   position: relative;
-  width: 100%;
+  width: calc(
+    calc(var(--card-count) * var(--logo-card-w)) + var(--logo-total-gap)
+  );
   padding: 20px 0;
+  display: flex;
+  
+  margin: 0 auto;
 }
 
+
 /* Fade effect on edges */
-.logo-slider::before,
-.logo-slider::after {
+.logo-carousel::before,
+.logo-carousel::after {
   content: "";
   position: absolute;
   top: 0;
@@ -49,112 +27,61 @@
   pointer-events: none;
 }
 
-.logo-slider::before {
+.logo-carousel::before {
   left: 0;
-  background: linear-gradient(to right, var(--bg-dark), transparent);
+  background: linear-gradient(to right, var(--color-background), transparent);
 }
 
-.logo-slider::after {
+.logo-carousel::after {
   right: 0;
-  background: linear-gradient(to left, var(--bg-dark), transparent);
+  background: linear-gradient(to left, var(--color-background), transparent);
 }
 
-.logo-track {
+.logo-group {
+  flex: 0 0;
   display: flex;
-  width: max-content;
-  gap: 40px;
-  animation: scroll 25s linear infinite;
-}
+  align-items: center;
 
-/* Pause animation on hover */
-.logo-slider:hover .logo-track {
+  animation: spin 20s linear infinite;
+  gap: var(--logo-gap);
+  padding-right: var(--logo-gap);
+}
+.logo-carousel:hover .logo-group{
   animation-play-state: paused;
 }
 
-/* Infinite smooth scroll */
-@keyframes scroll {
-  0% {
+@keyframes spin {
+  from {
     transform: translateX(0);
   }
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translateX(-100%);
   }
 }
-
-/* ========================= */
-/* PARTNER CARDS */
-/* ========================= */
-
-.partner-logo {
-  min-width: 220px;
-  height: 170px;
-  background: linear-gradient(145deg, #0f1b33, #101f3f);
-  border-radius: 20px;
+.logo {
+  flex: 0 0 var(--logo-card-w);
+  height: var(--logo-card-h);
+  padding: 0.3rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 25px;
-  transition: all 0.4s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.partner-logo:hover {
-  transform: translateY(-8px) scale(1.05);
-  box-shadow: 0 0 35px var(--border-glow);
-  border-color: rgba(59, 130, 246, 0.4);
-}
-
-.partner-logo img {
-  max-height: 80px;
-  width: auto;
+.logo img {
+  height: 60%;
   object-fit: contain;
-  transition: transform 0.4s ease;
-  filter: drop-shadow(0 0 12px rgba(59,130,246,0.25));
 }
 
-.partner-logo:hover img {
-  transform: scale(1.1);
+.logo div {
+  margin-top: auto;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-muted-foreground);
 }
 
-
-@media (max-width: 768px) {
-  .partner-logo {
-    min-width: 18px;
-    height: 150px;
+@media (max-width:500px) {
+  .logo-carousel{
+    --logo-gap:.5rem;
+  
   }
-
-  .logo-track {
-    gap: 25px;
-    animation: scroll 18s linear infinite;
-  }
-}
-.partner-logo {
-  min-width: 2400px !important;
-  width: 2400px !important;        /* lock width */
-  height: 180px !important;
-  flex: 0 0 auto !important;      /* prevent flex stretching */
-  background: linear-gradient(145deg, #0f1b33, #14244a) !important;
-  border-radius: 22px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 30px !important;
-}
-
-.partner-logo img {
-  width: 100% !important;
-  max-width: 100% !important;
-  max-height: 110px !important;
-  height: auto !important;
-  object-fit: contain !important;
-}
-.logo-track {
-  display: flex !important;
-  align-items: center !important;
-}
-.logo-track {
-  display: flex;
-  gap: 40px;
-  animation: scroll 25s linear infinite;
-  align-items: center;
 }
